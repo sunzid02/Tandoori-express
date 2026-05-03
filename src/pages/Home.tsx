@@ -86,7 +86,7 @@ export default function Home() {
           <Link to="/menu" className="btn-secondary">{t('home.fullMenu')}</Link>
         </div>
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
-          {featured.map((item) => <MenuCard key={item.id} item={item} variant="vertical" />)}
+          {featured.map((item) => <MenuCard key={item.id} item={item} />)}
         </div>
       </section>
     </>
