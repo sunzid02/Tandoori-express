@@ -15,11 +15,11 @@ const links = [
 export function Navbar() {
   return (
     <header className="sticky top-0 z-40 border-b border-gold/25 bg-cream/90 backdrop-blur-xl dark:border-gold/20 dark:bg-[#0f1c33]/90">
-      <nav className="container-page flex h-20 items-center justify-between gap-4">
-        <Link to="/" className="flex min-w-0 items-center gap-3" aria-label="Tandoori Express Bonn Startseite">
+      <nav className="container-page flex h-20 items-center justify-between gap-3">
+        <Link to="/" className="flex shrink-0 items-center gap-3" aria-label="Tandoori Express Bonn Startseite">
           <BrandMark />
-          <span className="min-w-0 leading-tight">
-            <span className="block truncate font-display text-xl font-bold text-rhine dark:text-baroque">{RESTAURANT_NAME}</span>
+          <span className="hidden min-w-0 leading-tight sm:block">
+            <span className="block whitespace-nowrap font-display text-xl font-bold text-rhine dark:text-baroque">{RESTAURANT_NAME}</span>
             <span className="block text-xs font-bold uppercase tracking-[0.22em] text-park">Bonn am Rhein</span>
           </span>
         </Link>
