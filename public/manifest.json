@@ -2,13 +2,14 @@
   "name": "Tandoori Express Bonn",
   "short_name": "Tandoori Express",
   "description": "Indische und pakistanische Küche in Bonn.",
-  "start_url": "/",
+  "start_url": "/Tandoori-express/",
+  "scope": "/Tandoori-express/",
   "display": "standalone",
-  "background_color": "#111827",
-  "theme_color": "#111827",
+  "background_color": "#FFF8ED",
+  "theme_color": "#1E3A8A",
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "/Tandoori-express/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml"
     }
