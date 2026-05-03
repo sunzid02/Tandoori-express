@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Permanent+Marker&family=Playfair+Display:wght@600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -53,6 +53,11 @@ textarea {
 
 .section-kicker {
   @apply mb-3 text-sm font-extrabold uppercase tracking-[0.22em] text-park dark:text-river;
+}
+
+.home-title-marker {
+  font-family: "Permanent Marker", cursive;
+  letter-spacing: 0;
 }
 
 .rhine-paper {

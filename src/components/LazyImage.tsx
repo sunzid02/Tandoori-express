@@ -34,7 +34,7 @@ export function LazyImage({ src, alt, className = '', ...props }: LazyImageProps
       src={shouldLoad ? src : undefined}
       alt={alt}
       loading="lazy"
-      className={`bg-beige object-cover dark:bg-white/10 ${className}`}
+      className={`block bg-beige object-cover dark:bg-white/10 ${className}`}
       {...props}
     />
   );

@@ -30,7 +30,7 @@ export default function Home() {
               <Waves className="h-4 w-4 text-river" aria-hidden="true" />
               {t('home.kicker')}
             </div>
-            <h1 className="font-display text-5xl font-bold leading-tight text-rhine dark:text-baroque sm:text-6xl lg:text-7xl">
+            <h1 className="home-title-marker text-5xl font-normal leading-tight text-rhine dark:text-baroque sm:text-6xl lg:text-7xl">
               {t('home.title')}
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-700 dark:text-cream/80">{t('home.text')}</p>
@@ -86,7 +86,7 @@ export default function Home() {
           <Link to="/menu" className="btn-secondary">{t('home.fullMenu')}</Link>
         </div>
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
-          {featured.map((item) => <MenuCard key={item.id} item={item} />)}
+          {featured.map((item) => <MenuCard key={item.id} item={item} variant="vertical" />)}
         </div>
       </section>
     </>
