@@ -1,0 +1,33 @@
+import type { MenuItem } from '@/data/restaurantData';
+import { LazyImage } from '@/components/LazyImage';
+
+export function MenuCard({ item }: { item: MenuItem }) {
+  return (
+    <article className="group overflow-hidden rounded-xl border border-gold/30 bg-white/90 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-rhine/40 dark:bg-white/10">
+      <div className="grid gap-0 sm:grid-cols-[10rem_1fr]">
+        <div className="relative h-48 overflow-hidden sm:h-full">
+          <LazyImage src={item.image} alt={`${item.name} bei Tandoori Express Bonn`} className="h-full w-full transition duration-500 group-hover:scale-105" />
+          <div className="absolute inset-0 bg-gradient-to-t from-rhine/30 to-transparent" />
+        </div>
+        <div className="p-5">
+          <div className="flex items-start justify-between gap-4">
+            <h3 className="font-display text-xl font-bold text-rhine dark:text-baroque">{item.name}</h3>
+            <span className="shrink-0 rounded-full border border-gold/40 bg-beige px-3 py-1 text-sm font-extrabold text-rhine dark:bg-white/10 dark:text-baroque">
+              {item.price}
+            </span>
+          </div>
+          <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-cream/75">{item.desc}</p>
+          {item.badges?.length ? (
+            <div className="mt-4 flex flex-wrap gap-2">
+              {item.badges.map((badge) => (
+                <span key={badge} className="rounded-full bg-park/10 px-3 py-1 text-xs font-bold text-park dark:bg-park/20">
+                  {badge}
+                </span>
+              ))}
+            </div>
+          ) : null}
+        </div>
+      </div>
+    </article>
+  );
+}

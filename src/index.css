@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-cream font-sans text-ink antialiased dark:bg-[#0f1c33] dark:text-cream;
+}
+
+button,
+a,
+input,
+textarea {
+  @apply focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-river/40;
+}
+
+::selection {
+  @apply bg-rhine text-white;
+}
+
+.container-page {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-xl bg-rhine px-6 py-3 text-sm font-bold uppercase tracking-wide text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-blue-950 dark:bg-baroque dark:text-ink dark:hover:bg-gold;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center rounded-xl border border-gold/40 bg-white/80 px-6 py-3 text-sm font-bold uppercase tracking-wide text-rhine shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:border-rhine hover:bg-beige dark:border-gold/40 dark:bg-white/10 dark:text-cream dark:hover:bg-white/15;
+}
+
+.card {
+  @apply rounded-xl border border-gold/25 bg-white/90 shadow-soft backdrop-blur dark:border-gold/25 dark:bg-white/10;
+}
+
+.section-title {
+  @apply font-display text-3xl font-bold tracking-normal text-rhine dark:text-baroque sm:text-4xl;
+}
+
+.section-kicker {
+  @apply mb-3 text-sm font-extrabold uppercase tracking-[0.22em] text-park dark:text-river;
+}
+
+.rhine-paper {
+  background:
+    radial-gradient(circle at 8% 18%, rgba(236, 72, 153, 0.08), transparent 22rem),
+    radial-gradient(circle at 92% 12%, rgba(252, 211, 77, 0.22), transparent 24rem),
+    linear-gradient(180deg, #fff8ed 0%, #f5f5dc 100%);
+}
+
+.dark .rhine-paper {
+  background:
+    radial-gradient(circle at 8% 18%, rgba(236, 72, 153, 0.14), transparent 22rem),
+    radial-gradient(circle at 92% 12%, rgba(212, 175, 55, 0.16), transparent 24rem),
+    linear-gradient(180deg, #0f1c33 0%, #13264a 100%);
+}
