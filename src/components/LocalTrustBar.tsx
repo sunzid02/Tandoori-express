@@ -1,13 +1,15 @@
 import { MapPin, Phone, Sparkles, Waves } from 'lucide-react';
-
-const items = [
-  { icon: MapPin, label: 'Bonn-Bad Godesberg' },
-  { icon: Waves, label: 'Nähe Rhein' },
-  { icon: Sparkles, label: 'Frisch gekocht' },
-  { icon: Phone, label: 'Telefonische Bestellung' }
-];
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export function LocalTrustBar() {
+  const { language } = useLanguage();
+  const items = [
+    { icon: MapPin, label: 'Bonn-Bad Godesberg' },
+    { icon: Waves, label: language === 'de' ? 'Nähe Rhein' : 'Near the Rhine' },
+    { icon: Sparkles, label: language === 'de' ? 'Frisch gekocht' : 'Freshly cooked' },
+    { icon: Phone, label: language === 'de' ? 'Telefonische Bestellung' : 'Phone orders' }
+  ];
+
   return (
     <div className="grid gap-3 rounded-xl border border-gold/25 bg-white/80 p-3 shadow-soft backdrop-blur dark:bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
       {items.map(({ icon: Icon, label }) => (

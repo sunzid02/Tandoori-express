@@ -2,17 +2,20 @@ import { Link, NavLink } from 'react-router-dom';
 import { Phone } from 'lucide-react';
 import { BrandMark } from '@/components/BrandMark';
 import { DarkModeToggle } from '@/components/DarkModeToggle';
+import { LanguageToggle } from '@/components/LanguageToggle';
 import { PHONE_HREF, RESTAURANT_NAME } from '@/config/site';
-
-const links = [
-  { to: '/', label: 'Home' },
-  { to: '/menu', label: 'Menü' },
-  { to: '/about', label: 'Über uns' },
-  { to: '/kontakt', label: 'Kontakt' },
-  { to: '/lieferando', label: 'Bestellen' }
-];
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export function Navbar() {
+  const { t } = useLanguage();
+  const links = [
+    { to: '/', label: 'Home' },
+    { to: '/menu', label: t('nav.menu') },
+    { to: '/about', label: t('nav.about') },
+    { to: '/kontakt', label: t('nav.contact') },
+    { to: '/lieferando', label: t('nav.order') }
+  ];
+
   return (
     <header className="sticky top-0 z-40 border-b border-gold/25 bg-cream/90 backdrop-blur-xl dark:border-gold/20 dark:bg-[#0f1c33]/90">
       <nav className="container-page flex h-20 items-center justify-between gap-3">
@@ -20,7 +23,7 @@ export function Navbar() {
           <BrandMark />
           <span className="hidden min-w-0 leading-tight sm:block">
             <span className="block whitespace-nowrap font-display text-xl font-bold text-rhine dark:text-baroque">{RESTAURANT_NAME}</span>
-            <span className="block text-xs font-bold uppercase tracking-[0.22em] text-park">Bonn am Rhein</span>
+            <span className="block text-xs font-bold uppercase tracking-[0.22em] text-park">{t('brand.local')}</span>
           </span>
         </Link>
 
@@ -43,10 +46,11 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-2">
+          <LanguageToggle />
           <DarkModeToggle />
-          <a href={`tel:${PHONE_HREF}`} className="hidden sm:inline-flex btn-primary py-2.5">
+          <a href={`tel:${PHONE_HREF}`} className="hidden md:inline-flex btn-primary py-2.5">
             <Phone className="mr-2 h-4 w-4" aria-hidden="true" />
-            Jetzt anrufen
+            {t('nav.call')}
           </a>
         </div>
       </nav>

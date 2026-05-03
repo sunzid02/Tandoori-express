@@ -2,37 +2,29 @@ import { HandHeart, Music2, Sparkles, Trees, Waves } from 'lucide-react';
 import { LazyImage } from '@/components/LazyImage';
 import { SEO } from '@/components/SEO';
 import { SectionHeading } from '@/components/SectionHeading';
-
-const cards = [
-  { icon: Waves, title: 'Rhein', text: 'Ruhig, klar und lokal verwurzelt in Bonn-Bad Godesberg.' },
-  { icon: Music2, title: 'Beethoven-Stadt', text: 'Klassische Eleganz als leiser Akzent im visuellen Auftritt.' },
-  { icon: Sparkles, title: 'Frische Gewürze', text: 'Südasiatische Aromen, warm und direkt verständlich.' },
-  { icon: HandHeart, title: 'Gastfreundschaft', text: 'Persönlich erreichbar, unkompliziert und herzlich.' }
-];
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export default function About() {
+  const { language, t } = useLanguage();
+  const cards = [
+    { icon: Waves, title: 'Rhein', text: language === 'de' ? 'Ruhig, klar und lokal verwurzelt in Bonn-Bad Godesberg.' : 'Calm, clear, and locally rooted in Bonn-Bad Godesberg.' },
+    { icon: Music2, title: language === 'de' ? 'Beethoven-Stadt' : 'Beethoven city', text: language === 'de' ? 'Klassische Eleganz als leiser Akzent im visuellen Auftritt.' : 'Classical elegance as a quiet visual accent.' },
+    { icon: Sparkles, title: language === 'de' ? 'Frische Gewürze' : 'Fresh spices', text: language === 'de' ? 'Südasiatische Aromen, warm und direkt verständlich.' : 'South Asian aromas, warm and easy to enjoy.' },
+    { icon: HandHeart, title: language === 'de' ? 'Gastfreundschaft' : 'Hospitality', text: language === 'de' ? 'Persönlich erreichbar, unkompliziert und herzlich.' : 'Personal, direct, simple, and welcoming.' }
+  ];
+
   return (
     <>
-      <SEO
-        title="Über uns | Tandoori Express Bonn"
-        description="Tandoori Express Bonn: Inspiriert von der Vielfalt Bonns und der Wärme südasiatischer Küche in Bonn-Bad Godesberg."
-        path="/about"
-      />
+      <SEO title={t('about.seoTitle')} description={t('about.seoDescription')} path="/about" />
       <section className="rhine-paper py-16">
         <div className="container-page grid gap-12 lg:grid-cols-[.95fr_1.05fr] lg:items-center">
           <div>
-            <SectionHeading
-              kicker="Über uns"
-              title="Inspiriert von Bonn und südasiatischer Küche."
-              text="Tandoori Express verbindet die internationale Food-Kultur Bonns mit der Wärme indischer und pakistanischer Gerichte. Der Auftritt bleibt bewusst ruhig, lokal und direkt."
-            />
-            <p className="mt-5 leading-7 text-slate-700 dark:text-cream/75">
-              Bonn-Bad Godesberg, Rheinseite, Parks und Nachbarschaft: Diese Website nimmt diese Atmosphäre auf, ohne erfundene Restaurantgeschichte zu behaupten.
-            </p>
+            <SectionHeading kicker={t('about.kicker')} title={t('about.title')} text={t('about.text')} />
+            <p className="mt-5 leading-7 text-slate-700 dark:text-cream/75">{t('about.body')}</p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
-            <LazyImage src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?q=80&w=900&auto=format&fit=crop" alt="Frisches Currygericht mit Gewürzen" className="h-72 w-full rounded-xl shadow-soft" />
-            <LazyImage src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=900&auto=format&fit=crop" alt="Indisches Gericht mit Reis und Sauce" className="h-72 w-full rounded-xl shadow-soft sm:mt-12" />
+            <LazyImage src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?q=80&w=900&auto=format&fit=crop" alt="Fresh curry dish with spices" className="h-72 w-full rounded-xl shadow-soft" />
+            <LazyImage src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=900&auto=format&fit=crop" alt="Indian dish with rice and sauce" className="h-72 w-full rounded-xl shadow-soft sm:mt-12" />
           </div>
         </div>
       </section>
@@ -49,9 +41,7 @@ export default function About() {
         </div>
         <div className="mt-10 rounded-xl border border-gold/25 bg-beige/80 p-6 dark:bg-white/10">
           <Trees className="h-6 w-6 text-park" aria-hidden="true" />
-          <p className="mt-3 text-lg leading-8 text-slate-700 dark:text-cream/80">
-            Inspiriert von der Vielfalt Bonns und der Wärme südasiatischer Küche.
-          </p>
+          <p className="mt-3 text-lg leading-8 text-slate-700 dark:text-cream/80">{t('about.seoDescription')}</p>
         </div>
       </section>
     </>
